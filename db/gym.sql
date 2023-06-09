@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS gym;
-DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS workouts;
+DROP TABLE IF EXISTS g_classes;
 DROP TABLE IF EXISTS members;
 
 CREATE TABLE members(
@@ -23,5 +23,5 @@ CREATE TABLE g_classes(
 CREATE TABLE workouts(
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
-    g_class_id INT REFERENCES classes(id) ON DELETE CASCADE
+    g_class_id INT REFERENCES g_classes(id) ON DELETE CASCADE
 );
