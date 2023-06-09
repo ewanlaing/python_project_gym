@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 from models.g_class import G_class
 from models.member import Member
-import repositories.gym_repository as gym_repository
+import repositories.workout_repository as workout_repository
 import repositories.member_repository as member_repository
 
 def save(g_class):
@@ -13,7 +13,7 @@ def save(g_class):
     return g_class
 
 def members_in_g_class(id):
-    sql = "SELECT * FROM members INNER JOIN gym ON gym.members_id = members.id WHERE g_class_id = %s"
+    sql = "SELECT * FROM members INNER JOIN workouts ON workouts.members_id = members.id WHERE g_class_id = %s"
     values = [id]
     members = []
     results = run_sql(sql, values)
