@@ -1,4 +1,4 @@
-class Class:
+class G_class:
     def __init__(self, name, date, time, duration, capacity, members, active, id = None):
         self.name = name
         self.date = date

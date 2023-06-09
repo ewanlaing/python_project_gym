@@ -9,7 +9,7 @@ CREATE TABLE members(
     active BOOLEAN
 );
 
-CREATE TABLE classes(
+CREATE TABLE g_classes(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     date VARCHAR(255),
@@ -23,5 +23,5 @@ CREATE TABLE classes(
 CREATE TABLE gym(
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
-    class_id INT REFERENCES classes(id) ON DELETE CASCADE
+    g_class_id INT REFERENCES classes(id) ON DELETE CASCADE
 );
