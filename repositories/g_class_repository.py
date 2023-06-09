@@ -18,7 +18,7 @@ def members_in_g_class(id):
     members = []
     results = run_sql(sql, values)
     for result in results:
-        member = Member(result['name'], result['premium'], result['active'], result['id'])
+        member = member_repository.select(result['id'])
         members.append(member)
     return members
 
