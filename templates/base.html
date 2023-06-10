@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>CodeClan Library</title>
+    </head>
+    <body>
+    <h1>Buffer Bloat Gym</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/members/index">Members</a></li>
+            <li><a href="/classes/index">Classes</a></li>
+        </ul>
+        {% block content %}{% endblock %}
+    </body>
+</html>

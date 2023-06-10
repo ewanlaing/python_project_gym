@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Members</h1>
+
+<section>
+    {% for member in members %}
+        <div>
+            <a href="/members/{{member.id}}">{{member.name}}</a>
+            {% if member.premium == True %}
+                <h3 style="color:goldenrod">Premium Membership</h3>
+            {% else %}
+                <h3>Standard Membership</h3>
+            {% endif %}
+            {% if member.active == False %}
+                <h3 style="color: red">Account inactive</h3>            
+            {% else %}
+                <h3>Current Member</h3>
+            {% endif %}
+            <p></p>
+            <a href="/members/{{member.id}}/edit">Update Details</a>
+        </div>
+    {% endfor %}
+
+</section>
+<p></p>
+<p></p>
+<a href = "/members/add">Add New Member</a>
+
+{% endblock %}
