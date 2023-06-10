@@ -49,12 +49,12 @@ def update(member):
     run_sql(sql, values)
 
 def g_classes_for_member(id):
-    sql = "SELECT * FROM g-classes INNER JOIN workouts ON workouts.g_class_id = g_classes.id WHERE member_id = %s"
+    sql = "SELECT * FROM g_classes INNER JOIN workouts ON workouts.g_class_id = g_classes.id WHERE member_id = %s"
     values = [id]
     g_classes = []
     results = run_sql(sql, values)
     for result in results:
-        g_class = g_class_repository.select(result['id'])
+        g_class = g_class_repository.select(result['g_class_id'])
         g_classes.append(g_class)
     return g_class
 

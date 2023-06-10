@@ -6,7 +6,7 @@ import repositories.member_repository as member_repository
 import repositories.g_class_repository as g_class_repository
 
 def save(workout):
-    sql = "INSERT INTO workout (member_id, g_class_id) VALUES (%s, %s) RETURNING *"
+    sql = "INSERT INTO workouts (member_id, g_class_id) VALUES (%s, %s) RETURNING *"
     values = [workout.member_id, workout.g_class_id]
     results = run_sql(sql, values)
     id = results[0]['id']

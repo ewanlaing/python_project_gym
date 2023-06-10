@@ -9,8 +9,8 @@ class G_class:
         self.active = active
         self.id = id
 
-    def deactivate_class(self):
+    def deactivate_g_class(self):
         self.active = False
 
-    def activate_class(self):
+    def activate_g_class(self):
         self.active = True

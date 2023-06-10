@@ -5,7 +5,7 @@ import repositories.workout_repository as workout_repository
 import repositories.member_repository as member_repository
 
 def save(g_class):
-    sql = "INSERT INTO classes (name, date, time, duration, capacity, number_of_members, active) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    sql = "INSERT INTO g_classes (name, date, time, duration, capacity, number_of_members, active) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
     values = [g_class.name, g_class.date, g_class.time, g_class.duration, g_class.capacity, len(g_class.members), g_class.active]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -13,12 +13,12 @@ def save(g_class):
     return g_class
 
 def members_in_g_class(id):
-    sql = "SELECT * FROM members INNER JOIN workouts ON workouts.members_id = members.id WHERE g_class_id = %s"
+    sql = "SELECT * FROM members INNER JOIN workouts ON workouts.member_id = members.id WHERE g_class_id = %s"
     values = [id]
     members = []
     results = run_sql(sql, values)
     for result in results:
-        member = member_repository.select(result['id'])
+        member = member_repository.select(result['member_id'])
         members.append(member)
     return members
 
@@ -54,7 +54,7 @@ def delete(id):
     run_sql(sql, values)
 
 def update(g_class):
-    sql = "UPDATE g_classes SET (name, date, time, duration, capacity, number_of_members, active) WHERE id = %s"
-    values = [g_class.name, g_class.date, g_class.time, g_class.duration, g_class.capacity, len(g_class.members), g_class.active]
+    sql = "UPDATE g_classes SET (name, date, time, duration, capacity, number_of_members, active) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [g_class.name, g_class.date, g_class.time, g_class.duration, g_class.capacity, len(g_class.members), g_class.active, g_class.id]
     run_sql(sql, values)
 
