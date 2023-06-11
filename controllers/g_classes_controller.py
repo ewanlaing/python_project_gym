@@ -70,3 +70,13 @@ def update_class(id):
 def delete_class(id):
     g_class_repository.delete(id)
     return redirect('/classes/index')
+
+@g_classes_blueprint.route("/classes/<g_class_id>/<member_id>/add", methods=['POST'])
+def add_member_to_class(g_class_id, member_id):
+    g_class = g_class_repository.select(g_class_id)
+    member = member_repository.select(member_id)
+    g_class.members.append(member)
+    g_class_repository.update(g_class)
+    workout = Workout(member_id, g_class_id)
+    workout_repository.save(workout)
+    return redirect('/classes/index')

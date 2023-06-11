@@ -5,6 +5,7 @@ from models.member import Member
 import repositories.g_class_repository as g_class_repository
 import repositories.member_repository as member_repository
 import repositories.workout_repository as workout_repository
+import pdb
 
 members_blueprint = Blueprint("members", __name__)
 
@@ -80,7 +81,13 @@ def delete_member(id):
 def book_class(id):
     member = member_repository.select(id)
     g_classes = g_class_repository.select_all()
+    g_classes.sort(key=lambda x: x.date)
     for g_class in g_classes:
         if g_class.active == False:
             g_classes.remove(g_class)
+    if member.premium == False:
+        peak_times = ['8am', '8.30am', '9am', '9.30am', '10am', '10.30am']
+        for g_class in g_classes:
+            if g_class.time in peak_times:
+                g_classes.remove(g_class)
     return render_template("/members/book.html", member=member, g_classes=g_classes)
