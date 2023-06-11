@@ -75,3 +75,9 @@ def update_member(id):
 def delete_member(id):
     member_repository.delete(id)
     return redirect('/members/index')
+
+@members_blueprint.route("/members/<id>/book", methods=['GET'])
+def book_class(id):
+    member = member_repository.select(id)
+    g_classes = g_class_repository.select_all()
+    return render_template("/members/book.html", member=member, g_classes=g_classes)

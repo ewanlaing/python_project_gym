@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Book {{member.name}} into a Class</h1>
+
+<section>
+    {% for g_class in g_classes %}
+        <div>
+            <h2>{{g_class.name}}</h2>
+            <h3>{{g_class.date}}</h3>
+            <h3>{{g_class.time}}</h3>
+            <h3>{{g_class.duration}}</h3>
+            {% if (g_class.members|length) < g_class.capacity %}
+                <a href="/classes/{{member.id}}/add">Book a Place</a>
+            {% else %}
+                <h2 style="color:red">NO SPACES AVAILABLE</h2>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+</section>
+<p></p>
+<p></p>
+<a href = "/members/index">Back to All Members</a>
+
+{% endblock %}
