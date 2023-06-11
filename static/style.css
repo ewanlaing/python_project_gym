@@ -4,8 +4,10 @@ body{
 
 section{
     display: flex;
-    justify-content: space-around;
-    justify-content:space-evenly
+    justify-content: space-between;
+    text-align: center;
+    margin: 60px
+
 }
 
 ul{
