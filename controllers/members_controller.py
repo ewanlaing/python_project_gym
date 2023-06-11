@@ -80,4 +80,7 @@ def delete_member(id):
 def book_class(id):
     member = member_repository.select(id)
     g_classes = g_class_repository.select_all()
+    for g_class in g_classes:
+        if g_class.active == False:
+            g_classes.remove(g_class)
     return render_template("/members/book.html", member=member, g_classes=g_classes)

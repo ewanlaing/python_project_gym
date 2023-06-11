@@ -27,10 +27,10 @@ member_repository.update(member1)
 
 members = [member1, member2]
 
-g_class1 = G_class('Spin', '21.2.23', '3pm', 45, 8, members, True)
+g_class1 = G_class('Spin', '21.2.23', '3pm', '45 mins', 8, members, True)
 g_class_repository.save(g_class1)
 
-g_class2 = G_class('Body Pump', '25.3.23', '11am', 60, 10, members, False)
+g_class2 = G_class('Body Pump', '25.3.23', '11am', '60 mins', 10, members, False)
 g_class_repository.save(g_class2)
 
 g_class2.activate_g_class()

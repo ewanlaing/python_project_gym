@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{g_class.name}}</h1>
+
+<section>
+    <div>
+        <h2>Date: {{g_class.date}}</h2>
+        <h2>Time: {{g_class.time}}</h2>
+        <h2>Duration: {{g_class.duration}}</h2>
+        <h2>Capacity: {{g_class.capacity}}</h2>
+        <h2>Participants: </h2>
+        {% for member in g_class.members %}
+            <a href="/members/{{member.id}}/view">{{member.name}}</a>
+        {% endfor %}
+        <p></p>
+        {% if g_class.active == True %}
+            <h1 style="color:goldenrod">Status: Active</h1>
+        {% endif %}
+        {% if g_class.active == False %}
+            <h1 style="color:red">Status: Inactive</h1>
+        {% endif %}
+    </div>
+<div>
+    <form action="/classes/{{g_class.id}}" method="post">
+        <select id="class" name="class">
+            {% for class in classes %}
+                <option value="{{class}}">{{class}}</option>
+            {% endfor %}
+        </select>
+        <p></p>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" min="2023-05-01" max="2024-05-01">
+        <label for="time">Time</label>
+        <select id="time" name="time">
+            {% for time in times %}
+                <option value="{{time}}">{{time}}</option>
+            {% endfor %}
+        </select>
+        <label for="duration">Duration</label>
+        <select id="duration" name="duration">
+            {% for duration in durations %}
+                <option value="{{duration}}">{{duration}}</option>
+            {% endfor %}
+        </select>
+        <label for="capacity">Capacity</label>
+        <select id="capacity" name="capacity">
+            {% for capacity in capacities %}
+                <option value="{{capacity}}">{{capacity}}</option>
+            {% endfor %}
+        </select>
+        <p></p>
+        <label for="status">Class Status</label>
+        <select id="status" name="status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+        <button type="submit">Update Class</button>
+    </form>
+<p></p>
+<form action="/classes/{{g_class.id}}/delete" method="post">
+            
+    <label for="delete">Delete Class?</label>
+    <input type="checkbox" name="delete" value="delete">
+
+    <p></p>
+    <button type="submit">Confirm Delete Class</button>
+</form>
+</div>
+
+</section>
+<p></p>
+<p></p>
+<a href = "/classes/index">Back to All Classes</a>
+
+{% endblock %}

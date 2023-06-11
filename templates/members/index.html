@@ -4,10 +4,13 @@
 
 <h1>Members</h1>
 
+<a href="/members/add">Add New Member</a>
+
+
 <section>
     {% for member in members %}
         <div>
-            <a href="/members/{{member.id}}">{{member.name}}</a>
+            <a href="/members/{{member.id}}/view">{{member.name}}</a>
             {% if member.premium == True %}
                 <h3 style="color:goldenrod">Premium Membership</h3>
             {% else %}
@@ -19,7 +22,6 @@
                 <h3>Current Member</h3>
             {% endif %}
             <p></p>
-            <a href="/members/{{member.id}}/view">View Details</a>
             <a href="/members/{{member.id}}/book">Book a Class</a>
         </div>
     {% endfor %}
@@ -27,6 +29,5 @@
 </section>
 <p></p>
 <p></p>
-<a href="/members/add">Add New Member</a>
 
 {% endblock %}

@@ -41,7 +41,7 @@ def select(id):
     if results:
         result = results[0]
         members = members_in_g_class(result['id'])
-        g_class = G_class(result['name'], result['date'], result['time'], result['duration'], result['capactity'], members, result['active'], result['id'])
+        g_class = G_class(result['name'], result['date'], result['time'], result['duration'], result['capacity'], members, result['active'], result['id'])
     return g_class
     
 def delete_all():

@@ -14,7 +14,7 @@ CREATE TABLE g_classes(
     name VARCHAR(255),
     date VARCHAR(255),
     time VARCHAR(255),
-    duration INT,
+    duration VARCHAR(255),
     capacity INT,
     number_of_members INT,
     active BOOLEAN

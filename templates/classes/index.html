@@ -4,6 +4,32 @@
 
 <h1>Classes</h1>
 
+<a href="/classes/add">Add New Class</a>
+
+<section>
+    {% for g_class in g_classes %}
+        <div>
+            <a href="/classes/{{g_class.id}}/view">{{g_class.name}}</a>
+            <h3>{{g_class.date}}</h3>
+            <h3>{{g_class.time}}</h3>
+            <h3>{{g_class.duration}}</h3>
+            {% if (g_class.members|length) < g_class.capacity %}
+                <h2 style="color:goldenrod">SPACES AVAILABLE</h2>
+            {% else %}
+                <h2 style="color:red">NO SPACES AVAILABLE</h2>
+            {% endif %}
+            {% if g_class.active == True %}
+            <h1 style="color:goldenrod">Status: Active</h1>
+            {% endif %}
+            {% if g_class.active == False %}
+                <h1 style="color:red">Status: Inactive</h1>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+</section>
+<p></p>
+<p></p>
 
 
 {% endblock %}

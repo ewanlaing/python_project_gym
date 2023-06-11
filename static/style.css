@@ -1,4 +1,10 @@
 body{
+    text-align: center;   
+}
+
+
+
+h1{
     text-align: center;
 }
 
@@ -13,4 +19,13 @@ section{
 ul{
     display: flex;
     justify-content: space-around;
+}
+
+a{
+    font-size: x-large;
+}
+
+nav{
+    background-color: aquamarine;
+    margin: 30px;
 }

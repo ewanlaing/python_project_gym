@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Add a New Class</h1>
+
+<form action="/classes/index" method="post">
+        <select id="class" name="class">
+            {% for class in classes %}
+                <option value="{{class}}">{{class}}</option>
+            {% endfor %}
+        </select>
+        <p></p>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" min="2023-05-01" max="2024-05-01">
+        <label for="time">Time</label>
+        <select id="time" name="time">
+            {% for time in times %}
+                <option value="{{time}}">{{time}}</option>
+            {% endfor %}
+        </select>
+        <label for="duration">Duration</label>
+        <select id="duration" name="duration">
+            {% for duration in durations %}
+                <option value="{{duration}}">{{duration}}</option>
+            {% endfor %}
+        </select>
+        <label for="capacity">Capacity</label>
+        <select id="capacity" name="capacity">
+            {% for capacity in capacities %}
+                <option value="{{capacity}}">{{capacity}}</option>
+            {% endfor %}
+        </select>
+        <p></p>
+        <button type="submit">Create New Class</button>
+</form>
+
+
+
+{% endblock %}
