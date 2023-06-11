@@ -37,16 +37,31 @@ def edit(id):
 
 @members_blueprint.route("/members/<id>", methods=['POST'])
 def update_member(id):
+    old_member = member_repository.select(id)
     name = request.form['name']
-    if request.form.get('standard'):
-        premium = True
-    if request.form.get('premium'):
-        premium = False
-    if request.form.get('deactivate'):
-        active = False
-    if request.form.get('activate'):
-        active = True
-    active = True
+
+    if old_member.premium == True:
+        if request.form.get('standard'):
+            premium = False
+        else:
+            premium = True
+    if old_member.premium == False:
+        if request.form.get('premium'):
+            premium = True
+        else:
+            premium = False
+
+    if old_member.active == True:
+        if request.form.get('deactivate'):
+            active = False
+        else:
+            active = True
+    if old_member.active == False:
+        if request.form.get('activate'):
+            active = True
+        else:
+            active = False
+
     member = Member(name, premium, active, id)
     member_repository.update(member)
     return redirect('/members/index')
