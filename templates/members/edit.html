@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Update Membership Details</h1>
+<section>
+    <form action="/members/{{member.id}}" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="{{member.name}}" required autofocus>
+        <p></p>
+        {% if member.premium == True %}
+            <label for="downgrade">Downgrade to Standard Membership</label>
+            <input type="checkbox" name="standard" value="standard">
+        {% endif %}
+        {% if member.premium == False %}
+            <label for="upgrade">Upgrade to Premium Membership</label>
+            <input type="checkbox" name="premium" value="premium">
+        {% endif %}
+        <p></p>
+        {% if member.active == True %}
+            <label for="deactivate">Deactivate Membership</label>
+            <input type="checkbox" name="deactivate" value="deactivate">
+        {% endif %}
+        {% if member.active == False %}
+            <label for="activate">Activate Membership</label>
+            <input type="checkbox" name="activate" value="activate">
+        {% endif %}
+        <p></p>
+        <button type="submit">Update Member Details</button>
+    </form>
+
+
+    <form action="/members/{{member.id}}/delete" method="post">
+        
+        <label for="delete">Delete Membership?</label>
+        <input type="checkbox" name="delete" value="delete">
+
+        <p></p>
+        <button type="submit">Confirm Delete Membership</button>
+    </form>
+</section>
+
+
+
+{% endblock %}
