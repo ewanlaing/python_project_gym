@@ -35,18 +35,18 @@ a{
     font-size: x-large;
 }
 
-nav{
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 61%, rgba(252,176,69,1) 100%);
-    
-}
+
 
 div{
-    background: rgb(34,193,195);
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(51,106,19,0.2707676820728291) 100%);
+    background-image: url('/static/images/Moody\ Background 2.jpg');
+    background-size:cover;
 }
 
 form{
-    background: rgb(195,34,185);
-    background: linear-gradient(0deg, rgba(195,34,185,0.09989933473389356) 0%, rgba(199,22,92,0.06348476890756305) 100%);
+    background: rgb(187,180,244);
+    background: linear-gradient(253deg, rgba(187,180,244,0.14471726190476186) 0%, rgba(218,198,246,0.15312062324929976) 72%);
+}
+
+li{
+    list-style: none;
 }

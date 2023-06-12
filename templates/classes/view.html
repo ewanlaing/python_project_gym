@@ -12,16 +12,16 @@
         <h2>Capacity: {{g_class.capacity}}</h2>
         <h2>Participants: </h2>
         {% for member in g_class.members %}
-            <a href="/members/{{member.id}}/view">{{member.name}}</a>
+            <a href="/members/{{member.id}}/view" style="color:antiquewhite">{{member.name}}</a>
         {% endfor %}
         <p></p>
         {% if g_class.active == True %}
-        <h1 style="color:goldenrod">Status: Active</h1>
+        <h1>Status: Active</h1>
     {% endif %}
     {% if g_class.active == False %}
         <h1 style="color:red">Status: Inactive</h1>
     {% endif %}
-        <a href="/classes/{{g_class.id}}/edit">Update Details</a>
+        <a href="/classes/{{g_class.id}}/edit" style="color:antiquewhite">Update Details</a>
     </div>
 <div>
 
@@ -29,6 +29,6 @@
 </section>
 <p></p>
 <p></p>
-<a href = "/classes/index">Back to All Classes</a>
+<a href = "/classes/index" style="color:antiquewhite">Back to All Classes</a>
 
 {% endblock %}

@@ -7,7 +7,7 @@
 <section>
     <div>
         {% if member.premium == True %}
-            <h3 style="color:goldenrod">Premium Membership</h3>
+            <h3 style>Premium Membership</h3>
         {% else %}
             <h3>Standard Membership</h3>
         {% endif %}
@@ -17,14 +17,14 @@
             <h3>Current Member</h3>
         {% endif %}
         <p></p>
-        <a href="/members/{{member.id}}/edit">Update Details</a>
+        <a href="/members/{{member.id}}/edit" style="color:antiquewhite">Update Details</a>
         <p></p>
     </div>
     <div>
         CLASSES BOOKED:
         {% for g_class in g_classes %}
         <div>
-            <a href="/classes/{{g_class.id}}/view">{{g_class.name}}</a>
+            <a href="/classes/{{g_class.id}}/view" style="color:antiquewhite">{{g_class.name}}</a>
             <h3>{{g_class.date}}</h3>
             <h3>{{g_class.time}}</h3>
             <h3>{{g_class.duration}}</h3>
@@ -38,6 +38,6 @@
 </section>
 <p></p>
 <p></p>
-<a href = "/members/index">Back to All Members</a>
+<a href = "/members/index" style="color:antiquewhite">Back to All Members</a>
 
 {% endblock %}
