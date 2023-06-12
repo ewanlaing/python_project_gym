@@ -44,3 +44,8 @@ workout1 = Workout(member1.id, g_class1.id)
 workout_repository.save(workout1)
 workout2 = Workout(member2.id, g_class1.id)
 workout_repository.save(workout2)
+
+print(g_class1.members)
+
+g_class1.members.remove(member1)
+print(g_class1.members)

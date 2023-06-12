@@ -10,10 +10,12 @@ h1{
 
 section{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
-    margin: 100px
-
+    margin: 100px;
+    column-gap: 10px;
+    row-gap: 70px
 }
 
 ul{

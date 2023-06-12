@@ -56,6 +56,6 @@ def g_classes_for_member(id):
     for result in results:
         g_class = g_class_repository.select(result['g_class_id'])
         g_classes.append(g_class)
-    return g_class
+    return g_classes
 
     

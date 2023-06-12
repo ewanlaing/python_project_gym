@@ -32,6 +32,17 @@ def select(id):
         workout = Workout(result['member_id'], result['g_class_id'], result['id'])
     return workout
 
+def select_by_atrributes(member_id, g_class_id):
+    workout = None
+    sql = "SELECT * FROM workouts WHERE member_id = %s AND g_class_id = %s"
+    values = [member_id, g_class_id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        workout = Workout(result['member_id'], result['g_class_id'], result['id'])
+    return workout
+
+
 def delete_all():
     sql = "DELETE FROM workouts"
     run_sql(sql)
@@ -40,6 +51,7 @@ def delete(id):
     sql = "DELETE FROM workouts WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
 
 def update(workout):
     sql = "UPDATE workouts SET (member_id, g_class_id) = (%s, %s) WHERE id = %s"

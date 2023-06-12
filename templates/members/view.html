@@ -18,10 +18,23 @@
         {% endif %}
         <p></p>
         <a href="/members/{{member.id}}/edit">Update Details</a>
+        <p></p>
+    </div>
+    <div>
+        CLASSES BOOKED:
+        {% for g_class in g_classes %}
+        <div>
+            <a href="/classes/{{g_class.id}}/view">{{g_class.name}}</a>
+            <h3>{{g_class.date}}</h3>
+            <h3>{{g_class.time}}</h3>
+            <h3>{{g_class.duration}}</h3>
+            <form action="/classes/{{g_class.id}}/{{member.id}}/remove" method="post">
+                <button tpye="submit">Cancel Booking</button>
+            </form>
+        </div>
+        {% endfor %}
+        <p></p>        
    </div>
-<div>
-
-</div>
 </section>
 <p></p>
 <p></p>

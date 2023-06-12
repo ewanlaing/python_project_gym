@@ -34,7 +34,8 @@ def create_member():
 @members_blueprint.route("/members/<id>/view", methods=['GET'])
 def view(id):
     member = member_repository.select(id)
-    return render_template("members/view.html", member=member)
+    g_classes = member_repository.g_classes_for_member(id)
+    return render_template("members/view.html", member=member, g_classes=g_classes)
 
 @members_blueprint.route("/members/<id>/edit", methods=['GET'])
 def edit(id):
@@ -84,6 +85,8 @@ def book_class(id):
     g_classes.sort(key=lambda x: x.date)
     for g_class in g_classes:
         if g_class.active == False:
+            g_classes.remove(g_class)
+        if member in g_class_repository.members_in_g_class(g_class.id):
             g_classes.remove(g_class)
     if member.premium == False:
         peak_times = ['8am', '8.30am', '9am', '9.30am', '10am', '10.30am']
