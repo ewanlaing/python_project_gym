@@ -5,7 +5,7 @@
 <h1>{{member.name}}</h1>
 
 <section>
-    <div>
+    <div style="background:none">
         {% if member.premium == True %}
             <h3 style>Premium Membership</h3>
         {% else %}
@@ -20,19 +20,21 @@
         <a href="/members/{{member.id}}/edit" style="color:antiquewhite">Update Details</a>
         <p></p>
     </div>
-    <div>
+    <div style="background:none">
         CLASSES BOOKED:
-        {% for g_class in g_classes %}
-        <div>
-            <a href="/classes/{{g_class.id}}/view" style="color:antiquewhite">{{g_class.name}}</a>
-            <h3>{{g_class.date}}</h3>
-            <h3>{{g_class.time}}</h3>
-            <h3>{{g_class.duration}}</h3>
-            <form action="/classes/{{g_class.id}}/{{member.id}}/remove" method="post">
-                <button tpye="submit">Cancel Booking</button>
-            </form>
-        </div>
-        {% endfor %}
+        <section>
+            {% for g_class in g_classes %}
+            <div>
+                <a href="/classes/{{g_class.id}}/view" style="color:antiquewhite">{{g_class.name}}</a>
+                <h3>{{g_class.date}}</h3>
+                <h3>{{g_class.time}}</h3>
+                <h3>{{g_class.duration}}</h3>
+                <form action="/classes/{{g_class.id}}/{{member.id}}/remove" method="post">
+                    <button tpye="submit">Cancel Booking</button>
+                </form>
+            </div>
+            {% endfor %}
+        </section>
         <p></p>        
    </div>
 </section>

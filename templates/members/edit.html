@@ -4,7 +4,7 @@
 
 <h1>Update {{member.name}}'s Details</h1>
 <section>
-    <div>
+    <div style="background:none">
         {% if member.premium == True %}
             <h3 style="color:goldenrod">Premium Membership</h3>
         {% else %}
@@ -17,7 +17,7 @@
         {% endif %}
         <p></p>
    </div>
-   <div>
+   <div style="background:none">
         <form action="/members/{{member.id}}" method="post">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="{{member.name}}" required autofocus>
@@ -53,6 +53,7 @@
             <button type="submit">Confirm Delete Membership</button>
         </form>
     </div>
+    <div></div>
 </section>
 
 

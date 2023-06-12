@@ -1,9 +1,9 @@
 body{
     text-align: center; 
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
     background: rgb(34,193,195);
     background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(47,155,228,1) 100%);
-    color:white;
+    color:blanchedalmond;
     font-weight: 400;
     margin:none;
     border:none;
@@ -38,8 +38,8 @@ a{
 
 
 div{
-    background-image: url('/static/images/Moody\ Background 2.jpg');
-    background-size:cover;
+    background: rgb(187,180,244);
+    background: linear-gradient(253deg, rgba(187,180,244,0.14471726190476186) 0%, rgba(218,198,246,0.15312062324929976) 72%);
 }
 
 form{
@@ -49,4 +49,9 @@ form{
 
 li{
     list-style: none;
+}
+
+.members{
+    background: rgb(187,180,244);
+    background: linear-gradient(253deg, rgba(187,180,244,0.14471726190476186) 0%, rgba(218,198,246,0.15312062324929976) 72%);
 }

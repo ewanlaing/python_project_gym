@@ -10,18 +10,21 @@
         <h2>Time: {{g_class.time}}</h2>
         <h2>Duration: {{g_class.duration}}</h2>
         <h2>Capacity: {{g_class.capacity}}</h2>
+        <p></p>
+        {% if g_class.active == True %}
+            <h1>Status: Active</h1>
+        {% endif %}
+        {% if g_class.active == False %}
+            <h1 style="color:red">Status: Inactive</h1>
+        {% endif %}
+            <a href="/classes/{{g_class.id}}/edit" style="color:antiquewhite">Update Details</a>
+    </div>
+    <div>
         <h2>Participants: </h2>
         {% for member in g_class.members %}
             <a href="/members/{{member.id}}/view" style="color:antiquewhite">{{member.name}}</a>
         {% endfor %}
-        <p></p>
-        {% if g_class.active == True %}
-        <h1>Status: Active</h1>
-    {% endif %}
-    {% if g_class.active == False %}
-        <h1 style="color:red">Status: Inactive</h1>
-    {% endif %}
-        <a href="/classes/{{g_class.id}}/edit" style="color:antiquewhite">Update Details</a>
+        
     </div>
 <div>
 
