@@ -3,30 +3,40 @@
 {% block content %}
 
 <h1>Book {{member.name}} into a Class</h1>
-{% if member.premium == False %}
-    <h1>Standard Membership: Off-Peak Classes Only</h1>
-{% endif %}
-{% if member.premium == True %}
-    <h1>Premium Membership: All Classes Available</h1>
-{% endif %}
 <section>
-    {% for g_class in g_classes %}
-        <div>
-            <h2>{{g_class.name}}</h2>
-            <h3>{{g_class.date}}</h3>
-            <h3>{{g_class.time}}</h3>
-            <h3>{{g_class.duration}}</h3>
-            {% if (g_class.members|length) < g_class.capacity %}
-                <form action="/classes/{{g_class.id}}/{{member.id}}/add" method="post">
-                    <button type="submit">Book Class</button>
-                </form>
-                
-            {% else %}
-                <h2 style="color:red">NO SPACES AVAILABLE</h2>
-            {% endif %}
-        </div>
-    {% endfor %}
+    <div style="background:none">
+        {% if member.premium == False %}
+            <h1>Standard Membership</h1>
+            <p></p>
+            <h2>Off Peak Classes Only</h2>
+        {% endif %}
+        {% if member.premium == True %}
+            <h1>Premium Membership</h1>
+            <p></p>
+            <h2>All Classes Available</h2>
+        {% endif %}
+    </div>
+    <div style="width: 600px; height:500px; overflow-x:hidden; overflow-y:auto">
+        <h1>Available Classes</h1>
+        {% for g_class in g_classes %}
+            <div>
+                <h1>----------</h1>
+                <h2>{{g_class.name}}</h2>
+                <h3>{{g_class.date}}</h3>
+                <h3>{{g_class.time}}</h3>
+                <h3>{{g_class.duration}}</h3>
+                {% if (g_class.members|length) < g_class.capacity %}
+                    <form action="/classes/{{g_class.id}}/{{member.id}}/add" method="post">
+                        <button type="submit">Book Class</button>
+                    </form>
+                    
+                {% else %}
+                    <h2 style="color:red">NO SPACES AVAILABLE</h2>
+                {% endif %}
+            </div>
+        {% endfor %}
 
+    </div>
 </section>
 <p></p>
 <p></p>
