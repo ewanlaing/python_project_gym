@@ -2,30 +2,36 @@
 
 {% block content %}
 
-<h1>Members</h1>
-<a href="/members/add" style="color:antiquewhite"><img src="/static/images/Gym Class.jpg" style="width:400px"></a>
-<p></p>
-<a href="/members/add" style="color:antiquewhite">Add New Member</a>
+
 
 
 <section>
-    {% for member in members %}
-        <div class="members">
-            <a href="/members/{{member.id}}/view" style="color:antiquewhite">{{member.name}}</a>
-            {% if member.premium == True %}
-                <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace">Premium Membership</h3>
-            {% else %}
-            <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
-            {% endif %}
-            {% if member.active == False %}
-                <h3 style="color: red">Account inactive</h3>            
-            {% else %}
-                <a href="/members/{{member.id}}/book" style="color:antiquewhite">Book a Class</a>
-            {% endif %}
-            <p></p>
-        </div>
-    {% endfor %}
+    <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
+        <h1>Current Members</h1>
+        {% for member in members %}
+            <h1>-----------</h1>
+            <div class="members">
+                <a href="/members/{{member.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{member.name}}</a>
+                {% if member.premium == True %}
+                    <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace">Premium Membership</h3>
+                {% else %}
+                <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
+                {% endif %}
+                {% if member.active == False %}
+                    <h3 style="color: red">Account inactive</h3>            
+                {% else %}
+                    <a href="/members/{{member.id}}/book" style="color:antiquewhite">Book a Class</a>
+                {% endif %}
+                <p></p>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="/members/add" style="color:antiquewhite">Add New Member</a>
+        <p></p>
+        <a href="/members/add" style="color:antiquewhite"><img src="/static/images/Gym Class.jpg" style="width:500px"></a>
 
+    </div>
 </section>
 <p></p>
 <p></p>

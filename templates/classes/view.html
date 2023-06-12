@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h1>{{g_class.name}}</h1>
 
-<section>
+<section style="justify-content:space-around">
     <div>
+        <h1>{{g_class.name}}</h1>
         <h2>Date: {{g_class.date}}</h2>
         <h2>Time: {{g_class.time}}</h2>
         <h2>Duration: {{g_class.duration}}</h2>
@@ -19,16 +19,28 @@
         {% endif %}
             <a href="/classes/{{g_class.id}}/edit" style="color:antiquewhite">Update Details</a>
     </div>
-    <div>
+    <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
         <h2>Participants: </h2>
         {% for member in g_class.members %}
-            <a href="/members/{{member.id}}/view" style="color:antiquewhite">{{member.name}}</a>
+        <h1>-----------</h1>
+        <div class="members">
+            <a href="/members/{{member.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{member.name}}</a>
+            {% if member.premium == True %}
+                <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace">Premium Membership</h3>
+            {% else %}
+            <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
+            {% endif %}
+            {% if member.active == False %}
+                <h3 style="color: red">Account inactive</h3>            
+            {% else %}
+                <a href="/members/{{member.id}}/book" style="color:antiquewhite">Book a Class</a>
+            {% endif %}
+            <p></p>
+        </div>
         {% endfor %}
         
     </div>
-<div>
 
-</div>
 </section>
 <p></p>
 <p></p>

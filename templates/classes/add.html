@@ -5,34 +5,34 @@
 <h1>Add a New Class</h1>
 
 <form action="/classes/index" method="post">
-        <select id="class" name="class">
+        <select id="class" name="class" style="font-size:200%; background-color:bisque">
             {% for class in classes %}
                 <option value="{{class}}">{{class}}</option>
             {% endfor %}
         </select>
         <p></p>
-        <label for="date">Date</label>
-        <input type="date" id="date" name="date" min="2023-05-01" max="2024-05-01">
-        <label for="time">Time</label>
-        <select id="time" name="time">
+        <label for="date"style="font-size:200%">Date</label>
+        <input type="date" id="date" name="date" min="2023-05-01" max="2024-05-01" style="font-size:200%; background-color:bisque">
+        <label for="time" style="font-size:200%">Time</label>
+        <select id="time" name="time" style="font-size:200%; background-color:bisque">
             {% for time in times %}
                 <option value="{{time}}">{{time}}</option>
             {% endfor %}
         </select>
-        <label for="duration">Duration</label>
-        <select id="duration" name="duration">
+        <label for="duration"style="font-size:200%">Duration</label>
+        <select id="duration" name="duration" style="font-size:200%; background-color:bisque">
             {% for duration in durations %}
                 <option value="{{duration}}">{{duration}}</option>
             {% endfor %}
         </select>
-        <label for="capacity">Capacity</label>
-        <select id="capacity" name="capacity">
+        <label for="capacity"style="font-size:200%">Capacity</label>
+        <select id="capacity" name="capacity" style="font-size:200%; background-color:bisque">
             {% for capacity in capacities %}
                 <option value="{{capacity}}">{{capacity}}</option>
             {% endfor %}
         </select>
         <p></p>
-        <button type="submit">Create New Class</button>
+        <button type="submit" style="font-size:200%; background-color:bisque">Create New Class</button>
 </form>
 
 

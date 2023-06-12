@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h1>{{member.name}}</h1>
 
-<section>
+<section style="justify-content:space-around">
     <div style="background:none">
+        <h1>{{member.name}}</h1>
         {% if member.premium == True %}
             <h3 style>Premium Membership</h3>
         {% else %}
@@ -20,11 +20,10 @@
         <a href="/members/{{member.id}}/edit" style="color:antiquewhite">Update Details</a>
         <p></p>
     </div>
-    <div style="background:none">
-        CLASSES BOOKED:
-        <section>
+    <div style="background:none; width: 300px; height:600px; overflow-x:hidden; overflow-y:auto">
             {% for g_class in g_classes %}
-            <div>
+            <h1>    </h1>
+            <div>              
                 <a href="/classes/{{g_class.id}}/view" style="color:antiquewhite">{{g_class.name}}</a>
                 <h3>{{g_class.date}}</h3>
                 <h3>{{g_class.time}}</h3>
@@ -33,8 +32,8 @@
                     <button tpye="submit">Cancel Booking</button>
                 </form>
             </div>
+            <h1>    </h1>
             {% endfor %}
-        </section>
         <p></p>        
    </div>
 </section>
