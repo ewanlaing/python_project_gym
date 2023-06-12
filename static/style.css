@@ -1,5 +1,12 @@
 body{
-    text-align: center;   
+    text-align: center; 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(47,155,228,1) 100%);
+    color:white;
+    font-weight: 400;
+    margin:none;
+    border:none;
 }
 
 
@@ -15,7 +22,8 @@ section{
     text-align: center;
     margin: 100px;
     column-gap: 10px;
-    row-gap: 70px
+    row-gap: 70px;
+    
 }
 
 ul{
@@ -28,6 +36,17 @@ a{
 }
 
 nav{
-    background-color: aquamarine;
-    margin: 30px;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 61%, rgba(252,176,69,1) 100%);
+    
+}
+
+div{
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(51,106,19,0.2707676820728291) 100%);
+}
+
+form{
+    background: rgb(195,34,185);
+    background: linear-gradient(0deg, rgba(195,34,185,0.09989933473389356) 0%, rgba(199,22,92,0.06348476890756305) 100%);
 }

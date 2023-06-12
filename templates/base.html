@@ -1,15 +1,16 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
         <title>Buff or Bloat Gym</title>
     </head>
-    <body>
-    <nav>
+    <body style="background-image: url('/static/images/Nice Gym.jpg');" style="background-size:20%">
+    <nav style="background-image: url('/static/images/Moody Background.jpg');" style="background-size:20%">
         <h1 style="font-size:xx-large">Buff or Bloat Gym</h1>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/members/index">Members</a></li>
-                <li><a href="/classes/index">Classes</a></li>
+                <li><a href="/" style="color:antiquewhite">Home</a></li>
+                <li><a href="/members/index" style="color:antiquewhite">Members</a></li>
+                <li><a href="/classes/index" style="color:antiquewhite">Classes</a></li>
             </ul>
     </nav>
         {% block content %}{% endblock %}

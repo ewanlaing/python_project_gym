@@ -91,6 +91,7 @@ def book_class(id):
     if member.premium == False:
         peak_times = ['8am', '8.30am', '9am', '9.30am', '10am', '10.30am']
         for g_class in g_classes:
-            if g_class.time in peak_times:
-                g_classes.remove(g_class)
+            for time in peak_times:
+                if g_class.time == time:
+                    g_classes.remove(g_class)
     return render_template("/members/book.html", member=member, g_classes=g_classes)
