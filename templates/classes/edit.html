@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>{{g_class.name}}</h1>
+<h1 style="font-size:300%">{{g_class.name}}</h1>
 
 <section>
     <div>
@@ -21,51 +21,57 @@
         {% if g_class.active == False %}
             <h1 style="color:red">Status: Inactive</h1>
         {% endif %}
+        <p></p>
+        <img src="/static/images/shutterstock_602457053.jpg" alt="equipment" width="500px">
+
     </div>
-<div>
+<div style="text-align:left">
     <form action="/classes/{{g_class.id}}" method="post">
-        <select id="class" name="class">
+        <select id="class" name="class" style="font-size:200%; background-color:bisque">
             {% for class in classes %}
                 <option value="{{class}}">{{class}}</option>
             {% endfor %}
         </select>
         <p></p>
-        <label for="date">Date</label>
-        <input type="date" id="date" name="date" min="2023-05-01" max="2024-05-01">
-        <label for="time">Time</label>
-        <select id="time" name="time">
+        <label for="date" style="font-size:200%">Date</label>
+        <input type="date" id="date" name="date" min="2023-05-01" max="2024-05-01" style="font-size:200%; background-color:bisque">
+        <p></p>
+        <label for="time" style="font-size:200%">Time</label>
+        <select id="time" name="time" style="font-size:200%; background-color:bisque">
             {% for time in times %}
                 <option value="{{time}}">{{time}}</option>
             {% endfor %}
         </select>
-        <label for="duration">Duration</label>
-        <select id="duration" name="duration">
+        <p></p>
+        <label for="duration" style="font-size:200%">Duration</label>
+        <select id="duration" name="duration" style="font-size:200%; background-color:bisque">
             {% for duration in durations %}
                 <option value="{{duration}}">{{duration}}</option>
             {% endfor %}
         </select>
-        <label for="capacity">Capacity</label>
-        <select id="capacity" name="capacity">
+        <p></p>
+        <label for="capacity" style="font-size:200%">Capacity</label>
+        <select id="capacity" name="capacity" style="font-size:200%; background-color:bisque">
             {% for capacity in capacities %}
                 <option value="{{capacity}}">{{capacity}}</option>
             {% endfor %}
         </select>
         <p></p>
-        <label for="status">Class Status</label>
-        <select id="status" name="status">
+        <label for="status" style="font-size:200%">Class Status</label>
+        <select id="status" name="status" style="font-size:200%; background-color:bisque">
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
         </select>
-        <button type="submit">Update Class</button>
+        <p></p>
+        <button type="submit" style="font-size:200%; background-color:bisque">Update Class</button>
     </form>
 <p></p>
 <form action="/classes/{{g_class.id}}/delete" method="post">
             
-    <label for="delete">Delete Class?</label>
-    <input type="checkbox" name="delete" value="delete">
-
+    <label for="delete" style="font-size:200%">Delete Class?</label>
+    <input type="checkbox" name="delete" value="delete" style="font-size:200%; background-color:bisque">
     <p></p>
-    <button type="submit">Confirm Delete Class</button>
+    <button type="submit" style="font-size:200%; background-color:bisque">Confirm Delete Class</button>
 </form>
 </div>
 <div></div>

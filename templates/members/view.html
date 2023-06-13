@@ -5,24 +5,27 @@
 
 <section style="justify-content:space-around">
     <div style="background:none">
-        <h1>{{member.name}}</h1>
+        <h1 style="font-size:200%">{{member.name}}</h1>
         {% if member.premium == True %}
-            <h3 style>Premium Membership</h3>
+            <h3 style="color:goldenrod; font-size:200%">Premium Membership</h3>
         {% else %}
-            <h3>Standard Membership</h3>
+            <h3 style="font-size:200%">Standard Membership</h3>
         {% endif %}
         {% if member.active == False %}
-            <h3 style="color: red">Account inactive</h3>            
+            <h3 style="color: red; font-size:200%"">Account inactive</h3>            
         {% else %}
-            <h3>Current Member</h3>
+            <h3 style="font-size:200%">Current Member</h3>
         {% endif %}
         <p></p>
-        <a href="/members/{{member.id}}/edit" style="color:antiquewhite">Update Details</a>
+        <a href="/members/{{member.id}}/edit" style="color:antiquewhite; font-size:200%">Update Details</a>
         <p></p>
+        <img src="/static/images/shutterstock_602457053.jpg" alt="equipment" width="500px">
+
     </div>
-    <div style="background:none; width: 300px; height:600px; overflow-x:hidden; overflow-y:auto">
+    <div style="background:none; width: 500px; height:600px; overflow-x:hidden; overflow-y:auto">
+            <h1>Current Bookings</h1>
             {% for g_class in g_classes %}
-            <h1>    </h1>
+            <h1>----------</h1>
             <div>              
                 <a href="/classes/{{g_class.id}}/view" style="color:antiquewhite">{{g_class.name}}</a>
                 <h3>{{g_class.date}}</h3>

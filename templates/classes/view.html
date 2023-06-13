@@ -5,8 +5,8 @@
 
 <section style="justify-content:space-around">
     <div>
-        <h1>{{g_class.name}}</h1>
-        <h2>Date: {{g_class.date}}</h2>
+        <h1 style="font-size:200%">{{g_class.name}}</h1>
+        <h2 >Date: {{g_class.date}}</h2>
         <h2>Time: {{g_class.time}}</h2>
         <h2>Duration: {{g_class.duration}}</h2>
         <h2>Capacity: {{g_class.capacity}}</h2>
@@ -17,7 +17,10 @@
         {% if g_class.active == False %}
             <h1 style="color:red">Status: Inactive</h1>
         {% endif %}
-            <a href="/classes/{{g_class.id}}/edit" style="color:antiquewhite">Update Details</a>
+        <a href="/classes/{{g_class.id}}/edit" style="color:antiquewhite">Update Details</a>
+        <p></p>
+        <img src="/static/images/shutterstock_602457053.jpg" alt="equipment" width="500px">
+
     </div>
     <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
         <h2>Participants: </h2>

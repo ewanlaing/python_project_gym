@@ -6,51 +6,53 @@
 <section>
     <div style="background:none">
         {% if member.premium == True %}
-            <h3 style="color:goldenrod">Premium Membership</h3>
+            <h3 style="color:goldenrod; font-size:200%">Premium Membership</h3>
         {% else %}
-            <h3>Standard Membership</h3>
+            <h3 style="font-size:200%">Standard Membership</h3>
         {% endif %}
         {% if member.active == False %}
-            <h3 style="color: red">Account inactive</h3>            
+            <h3 style="color: red; font-size:200%"">Account inactive</h3>            
         {% else %}
-            <h3>Current Member</h3>
+            <h3 style="font-size:200%">Current Member</h3>
         {% endif %}
+        <img src="/static/images/shutterstock_602457053.jpg" alt="equipment" width="500px">
+
         <p></p>
    </div>
-   <div style="background:none">
+   <div style="background:none; text-align:left">
         <form action="/members/{{member.id}}" method="post">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="{{member.name}}" required autofocus>
+            <label for="name" style="font-size:200%">Name</label>
+            <input type="text" id="name" name="name" placeholder="{{member.name}}" required autofocus style="font-size:200%; background-color:bisque">
             <p></p>
             {% if member.premium == True %}
-                <label for="downgrade">Downgrade to Standard Membership</label>
-                <input type="checkbox" name="standard" value="standard">
+                <label for="downgrade"style="font-size:200%">Downgrade to Standard Membership</label>
+                <input type="checkbox" name="standard" value="standard" style="font-size:200%; background-color:bisque">
             {% endif %}
             {% if member.premium == False %}
-                <label for="upgrade">Upgrade to Premium Membership</label>
-                <input type="checkbox" name="premium" value="premium">
+                <label for="upgrade"style="font-size:200%">Upgrade to Premium Membership</label>
+                <input type="checkbox" name="premium" value="premium" style="font-size:200%; background-color:bisque">
             {% endif %}
             <p></p>
             {% if member.active == True %}
-                <label for="deactivate">Deactivate Membership</label>
-                <input type="checkbox" name="deactivate" value="deactivate">
+                <label for="deactivate" style="font-size:200%"">Deactivate Membership</label>
+                <input type="checkbox" name="deactivate" value="deactivate" style="font-size:200%; background-color:bisque">
             {% endif %}
             {% if member.active == False %}
-                <label for="activate">Activate Membership</label>
-                <input type="checkbox" name="activate" value="activate">
+                <label for="activate" style="font-size:200%">Activate Membership</label>
+                <input type="checkbox" name="activate" value="activate" style="font-size:200%; background-color:bisque">
             {% endif %}
             <p></p>
-            <button type="submit">Update Member Details</button>
+            <button type="submit" style="font-size:200%; background-color:bisque">Update Member Details</button>
         </form>
 
 
         <form action="/members/{{member.id}}/delete" method="post">
             
-            <label for="delete">Delete Membership?</label>
+            <label for="delete" style="font-size:200%">Delete Membership?</label>
             <input type="checkbox" name="delete" value="delete">
 
             <p></p>
-            <button type="submit">Confirm Delete Membership</button>
+            <button type="submit" style="font-size:200%; background-color:bisque">Confirm Delete Membership</button>
         </form>
     </div>
     <div></div>
