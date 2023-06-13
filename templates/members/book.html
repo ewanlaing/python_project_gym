@@ -6,37 +6,69 @@
 <section>
     <div style="background:none">
         {% if member.premium == False %}
-            <h1>Standard Membership</h1>
+            <h3 style="font-family:'Courier New', Courier, monospace; font-size:200%">Standard Membership</h3>
             <p></p>
             <h2>Off Peak Classes Only</h2>
         {% endif %}
         {% if member.premium == True %}
-            <h1>Premium Membership</h1>
+            <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace; font-size:200%">Premium Membership</h3>     
             <p></p>
             <h2>All Classes Available</h2>
         {% endif %}
-        <img src="/static/images/Equipment.jpg" alt="equipment" width="500px">
+        <!-- <img src="/static/images/Equipment.jpg" alt="equipment" width="500px"> -->
+        <p></p>
+        <img src="/static/images/shutterstock_345498044.jpg" width="500px">
     </div>
-    <div style="width: 600px; height:500px; overflow-x:hidden; overflow-y:auto">
-        <h1>Available Classes</h1>
-        {% for g_class in g_classes %}
-            <div>
-                <h1>----------</h1>
-                <h2>{{g_class.name}}</h2>
-                <h3>{{g_class.date}}</h3>
-                <h3>{{g_class.time}}</h3>
-                <h3>{{g_class.duration}}</h3>
-                {% if (g_class.members|length) < g_class.capacity %}
-                    <form action="/classes/{{g_class.id}}/{{member.id}}/add" method="post">
-                        <button type="submit">Book Class</button>
-                    </form>
-                    
-                {% else %}
-                    <h2 style="color:red">NO SPACES AVAILABLE</h2>
-                {% endif %}
+    <div style="background:none">
+        <h1>PREMIUM MEMBERSHIP CLASSES</h1>
+        <div style="width: 600px; height:500px; overflow-x:hidden; overflow-y:auto">
+            {% for g_class in p_classes %}
+                <div>
+                    <h1>----------</h1>
+                    <h2>{{g_class.name}}</h2>
+                    <h3>{{g_class.date}}</h3>
+                    <h3>{{g_class.time}}</h3>
+                    <h3>{{g_class.duration}}</h3>
+                    <h3>Spaces: {{g_class.capacity - g_class.members|length}}/{{g_class.capacity}}</h3>
+                    {% if (g_class.members|length) < g_class.capacity %}
+                        {% if member.premium == True %}
+                            <form action="/classes/{{g_class.id}}/{{member.id}}/add" method="post">
+                                <button type="submit" style="font-size:150%; background-color:bisque">Book Class</button>
+                            </form>    
+                        {% else %}
+                            <h2 style="color:red">PREMIUM MEMBERS ONLY</h2>
+                        {% endif %}
+                    {% else %}
+                        <h2 style="color:red">NO SPACES AVAILABLE</h2>
+                    {% endif %}
+                    <h1>----------</h1>
+                </div>
+            {% endfor %}
             </div>
-        {% endfor %}
-
+            <p></p>
+            <h1>-------------------------</h1>
+            <p></p>
+            <h1>STANDARD MEMBERSHIP CLASSES</h1>
+            <div style="width: 600px; height:500px; overflow-x:hidden; overflow-y:auto">
+                {% for g_class in s_classes %}
+                    <div>
+                        <h1>----------</h1>
+                        <h2>{{g_class.name}}</h2>
+                        <h3>{{g_class.date}}</h3>
+                        <h3>{{g_class.time}}</h3>
+                        <h3>{{g_class.duration}}</h3>
+                        <h3>Spaces: {{g_class.capacity - g_class.members|length}}/{{g_class.capacity}}</h3>
+                        {% if (g_class.members|length) < g_class.capacity %}
+                            <form action="/classes/{{g_class.id}}/{{member.id}}/add" method="post">
+                                <button type="submit" style="font-size:150%; background-color:bisque">Book Class</button>
+                            </form>                  
+                        {% else %}
+                            <h2 style="color:red">NO SPACES AVAILABLE</h2>
+                        {% endif %}
+                        <h1>----------</h1>
+                    </div>
+                {% endfor %}
+        </div>
     </div>
 </section>
 <p></p>

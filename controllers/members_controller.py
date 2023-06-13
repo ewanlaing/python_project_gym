@@ -83,15 +83,17 @@ def book_class(id):
     member = member_repository.select(id)
     g_classes = g_class_repository.select_all()
     g_classes.sort(key=lambda x: x.date)
+    s_classes = []
+    p_classes = []
     for g_class in g_classes:
         if g_class.active == False:
             g_classes.remove(g_class)
-        if member in g_class_repository.members_in_g_class(g_class.id):
+        elif g_class in member_repository.g_classes_for_member(id):
             g_classes.remove(g_class)
-    if member.premium == False:
-        peak_times = ['8am', '8.30am', '9am', '9.30am', '10am', '10.30am']
-        for g_class in g_classes:
-            for time in peak_times:
-                if g_class.time == time:
-                    g_classes.remove(g_class)
-    return render_template("/members/book.html", member=member, g_classes=g_classes)
+        else:
+            if 'premium' in g_class.time:
+                p_classes.append(g_class)
+            else:
+                s_classes.append(g_class)
+    
+    return render_template("/members/book.html", member=member, p_classes=p_classes, s_classes=s_classes)

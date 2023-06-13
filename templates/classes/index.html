@@ -24,6 +24,7 @@
                 <h3>{{g_class.date}}</h3>
                 <h3>{{g_class.time}}</h3>
                 <h3>{{g_class.duration}}</h3>
+                <h3>Spaces: {{g_class.capacity - g_class.members|length}}/{{g_class.capacity}}</h3>
                 {% if (g_class.members|length) < g_class.capacity %}
                     <h2>SPACES AVAILABLE</h2>
                 {% else %}
@@ -35,6 +36,7 @@
                 {% if g_class.active == False %}
                     <h1 style="color:red">Status: Inactive</h1>
                 {% endif %}
+                <h1>-----------</h1>
             </div>
         {% endfor %}
 `   </div>

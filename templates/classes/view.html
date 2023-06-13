@@ -9,7 +9,7 @@
         <h2 >Date: {{g_class.date}}</h2>
         <h2>Time: {{g_class.time}}</h2>
         <h2>Duration: {{g_class.duration}}</h2>
-        <h2>Capacity: {{g_class.capacity}}</h2>
+        <h3>Spaces: {{g_class.capacity - g_class.members|length}}/{{g_class.capacity}}</h3>
         <p></p>
         {% if g_class.active == True %}
             <h1>Status: Active</h1>
@@ -33,12 +33,12 @@
             {% else %}
             <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
             {% endif %}
-            {% if member.active == False %}
-                <h3 style="color: red">Account inactive</h3>            
-            {% else %}
-                <a href="/members/{{member.id}}/book" style="color:antiquewhite">Book a Class</a>
-            {% endif %}
             <p></p>
+            <form action="/classes/{{g_class.id}}/{{member.id}}/remove" method="post">
+                <button tpye="submit" style="font-size:120%; background-color:bisque">Cancel Booking</button>
+            </form>
+            <p></p>
+        <h1>-----------</h1>
         </div>
         {% endfor %}
         

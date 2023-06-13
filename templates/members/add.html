@@ -3,20 +3,24 @@
 {% block content %}
 
 <h1>Add a New Member</h1>
-
-<form action="/members/index" method="post">
-    <label for="name" style="font-size:200%">Name</label>
-    <input type="text" id="name" style="font-size:200%; background-color:bisque" name="name" placeholder="Name" required autofocus>
-    <p></p>
-    <label for="membership" style="font-size:200%">Membership</label>
-    <select id="membership" name="membership" style="font-size:200%; background-color:bisque">
-        <option value="premium">Premium</option>
-        <option value="standard">Standard</option>
-    </select>
-    <p></p>
-    <button type="submit" style="font-size:200%; background-color:bisque">Create New Member</button>
-</form>
-
+<section>
+    <div></div>
+    <div>
+        <form action="/members/index" method="post" style="text-align:center">
+            <label for="name" style="font-size:200%">Name</label>
+            <input type="text" id="name" style="font-size:200%; background-color:bisque" name="name" placeholder="Name" required autofocus>
+            <p></p>
+            <label for="membership" style="font-size:200%">Membership</label>
+            <select id="membership" name="membership" style="font-size:200%; background-color:bisque">
+                <option value="premium">Premium</option>
+                <option value="standard">Standard</option>
+            </select>
+            <p></p>
+            <button type="submit" style="font-size:200%; background-color:bisque">Create New Member</button>
+        </form>
+    </div>
+    <div></div>
+</section>
 
 
 {% endblock %}

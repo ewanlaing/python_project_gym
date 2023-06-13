@@ -15,8 +15,8 @@ def save(g_class):
 def members_in_g_class(id):
     sql = "SELECT * FROM members INNER JOIN workouts ON workouts.member_id = members.id WHERE g_class_id = %s"
     values = [id]
-    members = []
     results = run_sql(sql, values)
+    members = []
     for result in results:
         member = member_repository.select(result['member_id'])
         members.append(member)

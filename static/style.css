@@ -55,3 +55,7 @@ li{
     background: rgb(187,180,244);
     background: linear-gradient(253deg, rgba(187,180,244,0.14471726190476186) 0%, rgba(218,198,246,0.15312062324929976) 72%);
 }
+
+img {
+    border: 2px solid bisque;
+  }

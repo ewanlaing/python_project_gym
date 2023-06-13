@@ -10,13 +10,13 @@ workout_repository.delete_all()
 g_class_repository.delete_all()
 member_repository.delete_all()
 
-member1 = Member('Ewan', False, True)
+member1 = Member('Ewan Laing', False, True)
 member_repository.save(member1)
 
 member1.premium = True
 member_repository.update(member1)
 
-member2 = Member('Sarah', False, False)
+member2 = Member('Sarah Leonard', False, False)
 member_repository.save(member2)
 
 member2.activate_member()
@@ -45,7 +45,5 @@ workout_repository.save(workout1)
 workout2 = Workout(member2.id, g_class1.id)
 workout_repository.save(workout2)
 
-print(g_class1.members)
 
-g_class1.members.remove(member1)
-print(g_class1.members)
+

@@ -16,7 +16,7 @@ def home():
 
 @g_classes_blueprint.route("/classes/add", methods=['GET'])
 def add():
-    times = ['8am', '8.30am', '9am', '9.30am', '10am', '10.30am', '11am', '11.30am', '12 noon', '12.30pm', '1pm', '1.30pm', '2pm', '2.30pm', '3pm', '3.30pm', '4pm', '4.30pm', '5pm', '5.30pm', '6pm', '6.30pm', '7pm', '7.30pm', '8pm', '8.30pm']
+    times = ['8am - premium', '8.30am - premium', '9am - premium', '9.30am - premium', '10am - premium', '10.30am - premium', '11am', '11.30am', '12 noon', '12.30pm', '1pm', '1.30pm', '2pm', '2.30pm', '3pm', '3.30pm', '4pm', '4.30pm', '5pm', '5.30pm', '6pm', '6.30pm', '7pm', '7.30pm', '8pm', '8.30pm']
     classes = ['Body Attack', 'Body Balance', 'Body Pump', 'FT Fit', 'Kickboxing', 'Spin', 'Yoga', 'Zumba']
     durations = ['30 mins', '45 mins', '60 mins']
     capacities = [10, 15, 20]
@@ -43,7 +43,7 @@ def view(id):
 @g_classes_blueprint.route("/classes/<id>/edit", methods=['GET'])
 def edit(id):
     g_class = g_class_repository.select(id)
-    times = ['8am', '8.30am', '9am', '9.30am', '10am', '10.30am', '11am', '11.30am', '12 noon', '12.30pm', '1pm', '1.30pm', '2pm', '2.30pm', '3pm', '3.30pm', '4pm', '4.30pm', '5pm', '5.30pm', '6pm', '6.30pm', '7pm', '7.30pm', '8pm', '8.30pm']
+    times = ['8am - premium', '8.30am - premium', '9am - premium', '9.30am - premium', '10am - premium', '10.30am - premium', '11am', '11.30am', '12 noon', '12.30pm', '1pm', '1.30pm', '2pm', '2.30pm', '3pm', '3.30pm', '4pm', '4.30pm', '5pm', '5.30pm', '6pm', '6.30pm', '7pm', '7.30pm', '8pm', '8.30pm']
     classes = ['Body Attack', 'Body Balance', 'Body Pump', 'FT Fit', 'Kickboxing', 'Spin', 'Yoga', 'Zumba']
     durations = ['30 mins', '45 mins', '60 mins']
     capacities = [10, 15, 20]
@@ -86,12 +86,14 @@ def add_member_to_class(g_class_id, member_id):
 def remove_member_from_class(g_class_id, member_id):
     g_class = g_class_repository.select(g_class_id)
     member = member_repository.select(member_id)
-    workout = workout_repository.select_by_atrributes(member.id, g_class.id)
-    if member in g_class_repository.members_in_g_class(g_class.id):
+    workout = workout_repository.select_by_atrributes(member_id, g_class_id)
+    members = g_class_repository.members_in_g_class(g_class_id)
+    if member in members:
          g_class.members.remove(member)
          g_class_repository.update(g_class)
          workout_repository.delete(workout.id) 
     else:
-        return "member not found"
+        return "error - cannot find member in class"
+    
     return redirect('/members/index')
 
