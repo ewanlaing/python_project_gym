@@ -97,3 +97,5 @@ def book_class(id):
                 s_classes.append(g_class)
     
     return render_template("/members/book.html", member=member, p_classes=p_classes, s_classes=s_classes)
+
+
