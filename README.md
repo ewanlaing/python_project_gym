@@ -1,6 +1,6 @@
 # python_project_gym
 
-This is my Week 5 Python solo project. It is a gym app designed to be used by gym employees to create and edit members and classes within a gym.
+This is my Week 5 Python solo project. It is a gym app designed to be used by gym employees to create and edit members and classes within a gym. The app uses Python, Flask and SQL.
 
 This was the brief:
 "Gym
