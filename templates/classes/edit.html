@@ -13,6 +13,7 @@
         <h2>Participants: </h2>
         {% for member in g_class.members %}
             <a href="/members/{{member.id}}/view" style="color:antiquewhite">{{member.name}}</a>
+            <p></p>
         {% endfor %}
         <p></p>
         {% if g_class.active == True %}
