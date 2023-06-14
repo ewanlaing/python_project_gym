@@ -10,30 +10,32 @@
         <a href="/classes/add" style="color:antiquewhite"><img src="/static/images/Nice Gym.jpg" alt="gym_class" style="width:500px"></a>
         
     </div>
-    <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
+    <div style="background:none">
         <h1>Current Classes</h1>
-        {% for g_class in g_classes %}
-            <div style="border:darkgrey">
-                <h1>-----------</h1>
-                <a href="/classes/{{g_class.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{g_class.name}}</a>
-                <h3>{{g_class.date}}</h3>
-                <h3>{{g_class.time}}</h3>
-                <h3>{{g_class.duration}}</h3>
-                <h3>Spaces: {{g_class.capacity - g_class.members|length}}/{{g_class.capacity}}</h3>
-                {% if (g_class.members|length) < g_class.capacity %}
-                    <h2>SPACES AVAILABLE</h2>
-                {% else %}
-                    <h2 style="color:red">NO SPACES AVAILABLE</h2>
-                {% endif %}
-                {% if g_class.active == True %}
-                <h1>Status: Active</h1>
-                {% endif %}
-                {% if g_class.active == False %}
-                    <h1 style="color:red">Status: Inactive</h1>
-                {% endif %}
-                <h1>-----------</h1>
-            </div>
-        {% endfor %}
+        <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
+            {% for g_class in g_classes %}
+                <div style="border:darkgrey">
+                    <h1>-----------</h1>
+                    <a href="/classes/{{g_class.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{g_class.name}}</a>
+                    <h3>{{g_class.date}}</h3>
+                    <h3>{{g_class.time}}</h3>
+                    <h3>{{g_class.duration}}</h3>
+                    <h3>Spaces: {{g_class.capacity - g_class.members|length}}/{{g_class.capacity}}</h3>
+                    {% if (g_class.members|length) < g_class.capacity %}
+                        <h2>SPACES AVAILABLE</h2>
+                    {% else %}
+                        <h2 style="color:red">NO SPACES AVAILABLE</h2>
+                    {% endif %}
+                    {% if g_class.active == True %}
+                    <h1>Status: Active</h1>
+                    {% endif %}
+                    {% if g_class.active == False %}
+                        <h1 style="color:red">Status: Inactive</h1>
+                    {% endif %}
+                    <h1>-----------</h1>
+                </div>
+            {% endfor %}
+    `   </div>
 `   </div>
     
 </section>

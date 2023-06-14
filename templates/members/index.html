@@ -6,26 +6,27 @@
 
 
 <section>
-    <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
+    <div style="background:none">
         <h1>Current Members</h1>
-        {% for member in members %}
-            <h1>-----------</h1>
-            <div class="members">
-                <a href="/members/{{member.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{member.name}}</a>
-                {% if member.premium == True %}
-                    <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace">Premium Membership</h3>
-                {% else %}
-                <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
-                {% endif %}
-                {% if member.active == False %}
-                    <h3 style="color: red">Account inactive</h3>            
-                {% else %}
-                    <a href="/members/{{member.id}}/book" style="color:antiquewhite">Book a Class</a>
-                {% endif %}
-                <p></p>               
-            </div>
-            <h1>-----------</h1>
-        {% endfor %}       
+        <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
+            {% for member in members %}
+                <div class="members">
+                    <a href="/members/{{member.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{member.name}}</a>
+                    {% if member.premium == True %}
+                        <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace">Premium Membership</h3>
+                    {% else %}
+                    <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
+                    {% endif %}
+                    {% if member.active == False %}
+                        <h3 style="color: red">Account inactive</h3>            
+                    {% else %}
+                        <a href="/members/{{member.id}}/book" style="color:antiquewhite">Book a Class</a>
+                    {% endif %}
+                    <p></p>               
+                </div>
+                <h1>-----------</h1>
+            {% endfor %}       
+        </div>
     </div>
     <div style="background:none">
         <a href="/members/add" style="font-size:200%; background-color:bisque; color:black">Add New Member</a>

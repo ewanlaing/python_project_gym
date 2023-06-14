@@ -22,24 +22,25 @@
         <img src="/static/images/shutterstock_602457053.jpg" alt="equipment" width="500px">
 
     </div>
-    <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
+    <div style="background:none">
         <h2>Participants: </h2>
-        {% for member in g_class.members %}
-        <h1>-----------</h1>
-        <div class="members">
-            <a href="/members/{{member.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{member.name}}</a>
-            {% if member.premium == True %}
-                <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace">Premium Membership</h3>
-            {% else %}
-            <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
-            {% endif %}
+        <div style="width: 600px; height:600px; overflow-x:hidden; overflow-y:auto">
+            {% for member in g_class.members %}
+            <h1>-----------</h1>
+            <div class="members">
+                <a href="/members/{{member.id}}/view" style="color:rgb(235, 173, 92); font-size:200%">{{member.name}}</a>
+                {% if member.premium == True %}
+                    <h3 style="color:greenyellow; font-family:'Courier New', Courier, monospace">Premium Membership</h3>
+                {% else %}
+                <h3 style="font-family:'Courier New', Courier, monospace">Standard Membership</h3>
+                {% endif %}
+                
+            <h1>-----------</h1>
+            </div>
+            {% endfor %}
             
-        <h1>-----------</h1>
         </div>
-        {% endfor %}
-        
     </div>
-
 </section>
 <p></p>
 <p></p>
