@@ -82,16 +82,4 @@ def add_member_to_class(g_class_id, member_id):
     g_classes = member_repository.g_classes_for_member(member.id)
     return render_template("members/view.html", member=member, g_classes=g_classes)
 
-# @g_classes_blueprint.route("/classes/<g_class_id>/<member_id>/remove", methods=['POST'])
-# def remove_member_from_class(g_class_id, member_id):
-#     g_class = g_class_repository.select(g_class_id)
-#     member = member_repository.select(member_id)
-#     workout = workout_repository.select_by_atrributes(member_id, g_class_id)
-#     members = g_class_repository.members_in_g_class(g_class_id)
-#     for class_member in members:
-#         if class_member.id == member.id:
-#             g_class.members.remove(class_member.id))
-#             g_class_repository.update(g_class)
-#             workout_repository.delete(workout.id) 
-#     return redirect('/members/index')
 
